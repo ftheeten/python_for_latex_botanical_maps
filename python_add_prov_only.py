@@ -9,9 +9,9 @@ import re
 import traceback
 import sys
 
-fichier_dist="C:\\DEV\\salvator\\novembre\\6_nov_dist_no_provs.txt"
+fichier_dist="C:\\DEV\\salvator\\novembre\\27_novembre_correction_manuelleqgis.txt"
 fichier_provinces="C:\\Users\\ftheeten\\OneDrive - Africamuseum\\Documents\\salvator\\gis\\provinces_botaniques_bdi.gpkg"
-output_file= "C:\\DEV\\salvator\\novembre\\6_nov_dist_with_provs_2.txt"
+output_file= "C:\\DEV\\salvator\\novembre\\27_novembre_correction_manuelleqgis_2.txt"
 
 
 
@@ -147,13 +147,13 @@ for index, row in def_species.iterrows():
         #print(row2["Longitude"])
         #print(row2["Latitude"])
         #list_points.append(shapely.geometry.Point(transformer.transform(row2["Longitude"], row2["Latitude"])))
-        if len(str(row2["Longitude"]))>0 and len(str(row2["Latitude"]))>0 :
+        if len(str(row2["long_merge"]))>0 and len(str(row2["lat_merge"]))>0 :
             '''
             print(row2["Longitude"])
             print(row2["Latitude"])
             '''
-            if isfloat(str(row2["Longitude"])) and isfloat(str(row2["Latitude"])):
-                pt=shapely.geometry.Point(transformer.transform(float(str(row2["Longitude"]).replace(",",".")), float(str(row2["Latitude"]).replace(",","."))))
+            if isfloat(str(row2["long_merge"])) and isfloat(str(row2["lat_merge"])):
+                pt=shapely.geometry.Point(transformer.transform(float(str(row2["long_merge"]).replace(",",".")), float(str(row2["lat_merge"]).replace(",","."))))
                 inter=buff_shp.intersects(pt)
                 flag=any(x == True for x in inter)
                 if flag:

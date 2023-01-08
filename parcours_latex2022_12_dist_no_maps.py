@@ -14,8 +14,8 @@ from os import unlink
 
 fichier_syno="C:\\DEV\\salvator\\mar\\20\\export_list_syno_fusionne_no_rank.txt"
 fichier_verna="C:\\DEV\\salvator\\aout\\28\\ArticleB_Liste des noms vernaculaires_2022_09_03.txt" 
-fichier_taxo="C:\\DEV\\salvator\\novembre\\6_nov_taxo.txt"
-fichier_dist="C:\\DEV\\salvator\\novembre\\6_nov_dist_with_provs_2.txt"
+fichier_taxo="C:\\DEV\\salvator\\dec\\taxo_4_dec_2.txt"
+fichier_dist="C:\\DEV\\salvator\\dec\\dist_4_dec_2.txt"
 
 image_folder="C:\\DEV\\salvator\\maps\\"
 
@@ -148,7 +148,7 @@ def format_scientific_name(name, rank, default_species=False, bold=True, is_syn=
         tmp_name=name
     if is_syn :
         genus=name.strip( ).split(" ")[0]
-        index="\\index{"+genus+"!synonym}"
+        index="\\index{"+genus+"!\mspace }"
         if not genus+" (syn.)" in index_name:
             index_name[genus+" (syn.)"]=[]
         index_name[genus+" (syn.)"].append(str(global_idx))        
